@@ -2,9 +2,9 @@ class Solution {
 public:
     int bestClosingTime(string customers) {
         int n = customers.length();
-        vector<int> pre(n + 1, 0);
-        vector<int> suf(n + 1, 0);
-         //pre[0]=0;
+        vector<int> pre(n + 1);
+        vector<int> suf(n + 1);
+         pre[0]=0;
         for(int i=0;i<n;i++){
             pre[i+1]=pre[i]+((customers[i]=='N')?1:0);
         }
