@@ -17,14 +17,16 @@ public:
       ListNode* c = dummy;
       while(a!=NULL && b!=NULL){
         if(a->val<=b->val){
-            c->next=a;
-            c=c->next;
+            ListNode*t=new ListNode(a->val);
+            c->next=t;
+            c=t;
            // a=a->next->next;
             a=a->next;
         }else{
-            c->next=b;
-            c=c->next;
+            ListNode*t=new ListNode(b->val);
+            c->next=t;
             //b=b->next->next;
+            c=t;
             b=b->next;
         }
       }
