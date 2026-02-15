@@ -30,22 +30,22 @@ public:
                 temp=temp->next;
             }
             maxc--;
-            if(minr<=maxr){
-                for(int i=maxc;i>=minc;i--){
-                    if(temp==NULL)return arr;
-                    arr[maxr][i]=temp->val;
-                    temp=temp->next;
-                }
+           if(minr<=maxr){
+            for(int i=maxc;i>=minc;i--){
+                if(temp==NULL)return arr;
+                arr[maxr][i]=temp->val;
+                temp=temp->next;
             }
-            maxr--;
-            if(minc<=maxc){
-                for(int j=maxr;j>=minr;j--){
-                    if(temp==NULL)return arr;
-                    arr[j][minc]=temp->val;
-                    temp=temp->next;
-                }
+           }
+           maxr--;
+           if(minc<=maxc){
+            for(int j=maxr;j>=minr;j--){
+                if(temp==NULL)return arr;
+                arr[j][minc]=temp->val;
+                temp=temp->next;
             }
-            minc++;
+           }
+           minc++;
         }
         return arr;
     }
