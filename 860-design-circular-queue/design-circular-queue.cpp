@@ -43,8 +43,7 @@ public:
     }
     
     bool isFull() {
-      if(s==c)return true;
-      else return false;  
+     return s==c;  
     }
 };
 
