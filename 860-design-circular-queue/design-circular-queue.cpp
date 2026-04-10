@@ -17,16 +17,14 @@ public:
     bool enQueue(int value) {
         if(s==c)return false;
         arr[b]=value;
-        b++;
-        if(b==c)b=0;
+        b=(b+1)%c;
         s++;
         return true;
     }
     
     bool deQueue() {
         if(s==0)return false;
-        f++;
-        if(f==c)f=0;
+        f=(f+1)%c;
         s--;
         return true;
     }
