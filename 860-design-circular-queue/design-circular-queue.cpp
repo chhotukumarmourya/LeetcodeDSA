@@ -10,8 +10,7 @@ public:
      b=0;
      s=0;
      c=k;
-     vector<int>v(k);
-     arr=v;   
+     arr = vector<int>(k);   
     }
     
     bool enQueue(int value) {
@@ -35,9 +34,8 @@ public:
     }
     
     int Rear() {
-       if(s==0)return -1;
-       if(b==0) return arr[c-1];
-       return arr[b-1]; 
+         if (s == 0) return -1;
+       return arr[(b-1+c)%c];
     }
     
     bool isEmpty() {
