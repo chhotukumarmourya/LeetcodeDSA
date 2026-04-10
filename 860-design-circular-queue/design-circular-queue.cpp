@@ -39,8 +39,7 @@ public:
     }
     
     bool isEmpty() {
-      if(s==0)return true;
-      else return false;  
+      return s==0;  
     }
     
     bool isFull() {
