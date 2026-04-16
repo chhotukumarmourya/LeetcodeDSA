@@ -1,43 +1,47 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        ListNode* tempA = headA;
-        ListNode* tempB = headB;
-
-        int lenA = 0, lenB = 0;
-
-        // Calculate lengths
-        while (tempA != NULL) {
-            lenA++;
-            tempA = tempA->next;
+       ListNode*tempA=headA;
+      ListNode*tempB=headB;
+      int lA=0;
+      int lB=0;
+      while(tempA!=NULL){
+        lA++;
+        tempA=tempA->next;
+      }
+      while(tempB!=NULL){
+        lB++;
+        tempB=tempB->next;
+      }
+      tempA=headA;
+      tempB=headB;
+      if(lA>lB){
+        int idx=lA-lB;
+        for(int i=1;i<idx+1;i++){
+            tempA=tempA->next;
+        }while(tempA!=tempB){
+            tempA=tempA->next;
+            tempB=tempB->next;
         }
-        while (tempB != NULL) {
-            lenB++;
-            tempB = tempB->next;
+        return tempA;
+      }else{
+        int idx=lB-lA;
+        for(int i=1;i<idx+1;i++){
+            tempB=tempB->next;
         }
-
-        tempA = headA;
-        tempB = headB;
-
-        // Align both lists
-        if (lenA > lenB) {
-            int skip = lenA - lenB;
-            for (int i = 0; i < skip; i++) {
-                tempA = tempA->next;
-            }
-        } else {
-            int skip = lenB - lenA;
-            for (int i = 0; i < skip; i++) {
-                tempB = tempB->next;
-            }
+        while(tempB!=tempA){
+           tempA=tempA->next;
+            tempB=tempB->next; 
         }
-
-        // Compare nodes
-        while (tempA != tempB) {
-            tempA = tempA->next;
-            tempB = tempB->next;
-        }
-
-        return tempA; // or tempB (both same)
+        return tempA;
+      }
     }
 };
