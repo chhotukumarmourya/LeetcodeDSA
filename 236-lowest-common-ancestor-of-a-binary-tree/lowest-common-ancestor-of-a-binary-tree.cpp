@@ -17,8 +17,8 @@ public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         if(root==p || root==q)return root;
         else if(helper(root->left,p) && helper(root->right,q))return root;
-        else if(!helper(root->left,p) && !helper(root->right,q))return root;
-        else if(helper(root->left,p) && helper(root->left,q))return lowestCommonAncestor(root->left,p,q);
-        else return lowestCommonAncestor(root->right,p,q);
+        else if(!helper(root->left,p) && !helper(root->right,q))return root;   
+         else if(helper(root->left,p) && helper(root->left,q))return lowestCommonAncestor(root->left,p,q);
+         else return lowestCommonAncestor(root->right,p,q);
     }
 };
