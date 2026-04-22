@@ -9,16 +9,12 @@
  */
 class Solution {
 public:
-     bool helper(TreeNode*root,TreeNode*target){
-        if(root==NULL)return false;
-        if(root==target)return true;
-        return helper(root->left,target)||helper(root->right,target);
-     }
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(root==NULL)return NULL;
         if(root==p || root==q)return root;
-        else if(helper(root->left,p) && helper(root->right,q))return root;
-        else if(!helper(root->left,p) && !helper(root->right,q))return root;   
-         else if(helper(root->left,p) && helper(root->left,q))return lowestCommonAncestor(root->left,p,q);
-         else return lowestCommonAncestor(root->right,p,q);
+        TreeNode*left=lowestCommonAncestor(root->left,p,q);
+        TreeNode*right=lowestCommonAncestor(root->right,p,q);
+        if(left && right)return root;
+        return left?left:right;
     }
 };
