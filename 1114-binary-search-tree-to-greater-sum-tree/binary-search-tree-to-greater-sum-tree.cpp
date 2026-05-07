@@ -11,17 +11,17 @@
  */
 class Solution {
 public:
-  int sum=0;
-    void gst(TreeNode*root){
+
+    void gst(TreeNode*root,int &sum){
       if(root==NULL)return;
-       gst(root->right);
+       gst(root->right,sum);
         root->val +=sum;
         sum=root->val;
-      gst(root->left);
+      gst(root->left,sum);
     }
     TreeNode* bstToGst(TreeNode* root) {
-     
-        gst(root);
+     int sum=0;
+        gst(root,sum);
        return root;
     }
 };
