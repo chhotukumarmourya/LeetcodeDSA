@@ -8,8 +8,6 @@ public:
         }
         return res;
     }
-
-    // Largest x such that x^k <= r
     int mySqrt(int r, int k) {
         int lo = 0;
         int high = r;
@@ -19,10 +17,8 @@ public:
             if(p <= r) lo = mid + 1;
             else       high = mid - 1;
         }
-        return high;  // largest x where x^k <= r
+        return high; 
     }
-
-    // Smallest x such that x^k >= l
     int mySqrt2(int l, int k) {
         int lo = 0;
         int high = l;
@@ -32,13 +28,13 @@ public:
             if(p >= l) high = mid - 1;
             else       lo = mid + 1;
         }
-        return lo;  // smallest x where x^k >= l
+        return lo;  
     }
 
     int countKthRoots(int l, int r, int k) {
         if(k == 1) return r - l + 1;
-        int R = mySqrt(r, k);   // largest x where x^k <= r
-        int L = mySqrt2(l, k);  // smallest x where x^k >= l
+        int R = mySqrt(r, k);   
+        int L = mySqrt2(l, k);  
         return R - L + 1;
     }
 };
