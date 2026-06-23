@@ -13,7 +13,7 @@ public:
         vector<int>ans;
         while(pq.size()>0){
             ans.push_back(pq.top().second);
-            pq.pop();
+            pq.pop(); 
         }
         return ans;
     }
